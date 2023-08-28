@@ -35,8 +35,8 @@ You need to have the following software installed:
 
 1. Clone the repository
 ```bash
-   git clone https://github.com/erick-efc/globant_test_flask_rest_api_local
-   cd globant_test_flask_rest_api_local
+   git clone https://github.com/erick-efc/simple_local_flask_rest_api
+   cd simple_local_flask_rest_api
 ```
 2. Create and activate a virtual environment (optional but highly recommended):
 ```bash
@@ -59,15 +59,15 @@ mysql -u root -p
 source ./misc/db_structure.sql;
 ```
   -You should have something like this:
-![Relational DB Diagram](./misc/globant_test_db_relational_diagram.png)
+![Relational DB Diagram](./misc/db_relational_diagram.png)
 
 - create a new user to interact with you api. To interact with this app without need to change config, you can you use:
 ``` sql
-CREATE USER 'api_user'@'localhost' IDENTIFIED BY 'globant123';
+CREATE USER 'api_user'@'localhost' IDENTIFIED BY 'your_password';
 ```
 - grant the access to the new user accordingly
 ``` sql
-GRANT SELECT, INSERT, UPDATE, DELETE ON globant_test.* TO 'api_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON your_database.* TO 'api_user'@'localhost';
 ```
 - flush
 ``` sql
