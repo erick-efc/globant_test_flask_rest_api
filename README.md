@@ -1,4 +1,4 @@
-# Flask REST API in AWS (migrating...)
+# Flask REST API local
 
 This is a simple Flask-based REST API project that needs to:
 1.	Receive historical data from CSV files
@@ -58,10 +58,8 @@ mysql -u root -p
 ``` sql
 source ./misc/db_structure.sql;
 ```
-  -You should have something like this:
-![Relational DB Diagram](./misc/db_relational_diagram.png)
-
-- create a new user to interact with you api. To interact with this app without need to change config, you can you use:
+ 
+- create a new user to interact with your api. To interact with this app without need to change too much, run this:
 ``` sql
 CREATE USER 'api_user'@'localhost' IDENTIFIED BY 'your_password';
 ```
@@ -73,7 +71,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON your_database.* TO 'api_user'@'localhost
 ``` sql
 FLUSH PRIVILEGES;
 ```
-- optional you can run a phpMyAdmin instance to follow the api interacting with the DB, run in another terminal and access `http://localhost:8080/index.php` trough browser:
+- optional you can run a phpMyAdmin instance to follow the api interacting with the DB, run in another terminal at the appropriate directory (php installation) and access `http://localhost:8080/index.php` trough browser:
 ``` bash
 php -S localhost:8080
 ```
@@ -131,6 +129,7 @@ curl -X GET http://localhost:5000/api/ls_uploads
 ``` bash
 curl -X POST -F "file=hired_employees.csv" http://localhost:5000/api/del_in_uploads
 ```
+Following are two examples of preset SQL queries, change it as you like in the routes folder
 ### Endpoints SQL
 - `GET /api/sql/hired_over_mean_2021` Query departments with hired employees above mean of the company in json format. To retrieve it in tabulate format you can run `tabulated_hired_over_mean_2021.py`
 ``` bash
