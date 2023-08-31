@@ -56,6 +56,8 @@ mysql -u root -p
 ```
 - build the DB using the provided empty sql dump file `db_structure.sql`
 ``` sql
+CREATE DATABASE local_api_db
+USE local_api_db
 source ./misc/db_structure.sql;
 ```
  
